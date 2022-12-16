@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Island+Moments&family=Montserrat:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Document</title>
+  </head>
+
+  <body onload="init()">
+    <div class="container">
+      <div class="header">
+        <div class="innerHeader">
+          <div class="logoContainer">
+            <h1>MY<span>BOOK</span></h1>
+          </div>
+          <div class="webDescription">
+            <p>Manage your books quickly and easily</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mangeBooksToDisplay">
+        <div class="sortContainer">
+          <div class="sortLbl">
+            <p>Sort By:</p>
+          </div>
+          <div class="sortBtn">
+            <button
+              class="sort selected FromOld"
+              disabled
+              onclick="sortBooks('FromOld',this)"
+            >
+              Oldest
+            </button>
+            <button class="sort FromNew" onclick="sortBooks('FromNew',this)">
+              Newest
+            </button>
+            <button
+              class="sort FromCheap"
+              onclick="sortBooks('FromCheap',this)"
+            >
+              Cheap
+            </button>
+            <button
+              class="sort FromExpensive"
+              onclick="sortBooks('FromExpensive',this)"
+            >
+              Expensive
+            </button>
+            <button class="sort FromName" onclick="sortBooks('FromName',this)">
+              Name
+            </button>
+          </div>
+        </div>
+
+        <div class="searchBook">
+          <label>Search Book By Name:</label>
+          <input
+            class="searchBar"
+            type="text"
+            onkeyup="onSearch(this.value)"
+            placeholder="Search for books.."
+          />
+        </div>
+
+        <div class="filterContainer">
+          <div class="filterLbl">
+            <p>Minimum Coast:</p>
+          </div>
+          <input
+            class="minRange"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+            onchange="onSetFilter(this.value)"
+          />
+          <div class="rangeNumberLbl">0$</div>
+        </div>
+      </div>
+
+      <div class="main">
+        <button
+          title="Add books"
+          class="openAddContainerBtn"
+          onclick="openAddContainer()"
+        >
+          +
+        </button>
+      </div>
+
+      <div class="addContainer close">
+        <h2>New Book Menu</h2>
+        <label onclick="closeAddContainer()" class="exitBtn">x</label>
+        <label><span>*</span>Book Name:</label>
+        <input class="bookName" placeholder="Enter Book Name:" type="text" />
+        <label><span>*</span>Description Of Book:</label>
+        <textarea
+          class="descriptionOfBook"
+          id="subject"
+          name="subject"
+          placeholder="Enter Description...."
+        ></textarea>
+        <label><span>*</span>Enter Coast:</label>
+        <input
+          class="bookCoast"
+          placeholder="Enter Coast:"
+          type="number"
+          min="0"
+        />
+        <button
+          class="AddNewBookBtn"
+          onclick="createNewBook()"
+          style="margin: 5px"
+        >
+          Add
+        </button>
+        <p>Fields marked <span>*</span> are mandatory!</p>
+      </div>
+
+      <div class="bookMsg close"></div>
+
+      <div class="updateContainer close">
+        <h2>Update Book Menu</h2>
+        <label onclick="closeUpdateContainer()" class="exitBtn">x</label>
+        <label><span>*</span> Update Book Name:</label>
+        <input class="updateBookName" placeholder="Update Book Name""
+        type="text" />
+        <label><span>*</span>Update Description Of Book</label>
+        <textarea
+          class="updateDescriptionOfBook"
+          id="subject"
+          name="subject"
+          placeholder="Update Description...."
+        ></textarea>
+        <label> <span>*</span> Update Coast</label>
+        <input
+          class="updateBookCoast"
+          placeholder="Update Coast"
+          type="number"
+          min="0"
+        />
+        <button
+          class="UpdateBookBtn"
+          onclick="updateCurrentBook(gCurrentBookId)"
+          style="margin: 5px"
+        >
+          Update
+        </button>
+        <p>Fields marked <span>*</span> are mandatory!</p>
+      </div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/service.js"></script>
+    <script src="js/scriptOOP.js"></script>
+    <script src="js/controller.js"></script>
+  </body>
+</html>

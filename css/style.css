@@ -1,0 +1,317 @@
+* {
+  text-align: center;
+  font-family: "Montserrat";
+}
+
+body {
+  background-color: #0f0f0f;
+}
+
+button {
+  cursor: pointer;
+}
+
+.main {
+  color: #d9e0e9;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+
+.sortContainer {
+  color: #fe733e;
+  padding: 3vh;
+  display: flex;
+  height: 100%;
+  gap: 0.5em;
+}
+
+.sortContainer .sort {
+  border: none;
+  background-color: #626262;
+  color: #e4e4e4;
+  border-radius: 999px;
+  padding: 2vh;
+}
+
+.sortContainer .sort:hover:enabled {
+  background-color: #9d9c9c;
+}
+
+.sortContainer .sort.selected {
+  background-color: #fe733e;
+}
+
+.bookCard {
+  background-color: #d9e0e9;
+  border-radius: 2px;
+  min-height: 87.51px;
+  min-width: 203.83px;
+  padding: 20px;
+  transition: 0.2s;
+  color: #141414;
+}
+
+.bookCard button {
+  background-color: #fe733e;
+  border-radius: 999px;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+}
+
+.bookCard button:hover:enabled {
+  background-color: #cf4813;
+  color: white;
+}
+
+.header {
+  height: 10vh;
+  background-color: #5c5b5b;
+}
+
+.innerHeader {
+  width: 80%;
+  height: 10vh;
+  display: block;
+  margin: 0 auto;
+}
+
+.logoContainer {
+  height: 100%;
+  display: table;
+  float: left;
+}
+
+.logoContainer h1 {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  color: rgb(233, 231, 231);
+  font-size: 32px;
+  font-weight: 200;
+}
+
+.logoContainer h1 span {
+  font-weight: 800;
+  color: #fe733e;
+}
+
+.webDescription {
+  float: right;
+  height: 10vh;
+}
+
+.webDescription p {
+  color: #fe733e;
+  height: 10vh;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0px 20px;
+  font-size: 16px;
+}
+
+.footer {
+  bottom: 0;
+  width: 100%;
+  height: 20vh;
+  border-radius: 7px;
+  background-color: darkcyan;
+}
+
+.openAddContainerBtn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  right: 0;
+  margin: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: #fe733e;
+  border: none;
+  color: black;
+}
+
+.openAddContainerBtn:hover:enabled {
+  color: white;
+  background-color: #cf4813;
+}
+
+.exitBtn {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px 5px 10px 10px;
+}
+
+.bookMsg {
+  background-color: #5c5b5b;
+  padding: 5px 40px 5px 40px;
+  transition: 0.5s;
+  color: white;
+}
+
+.bookMsg.open {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 10px;
+}
+
+.bookMsg.close {
+  position: fixed;
+  left: -200%;
+}
+
+.addContainer {
+  background-color: #d9e0e9;
+  padding: 10px;
+  border-radius: 5px;
+  border: black 1px solid;
+}
+
+h2 {
+  color: #fe733e;
+}
+
+.addContainer > * {
+  border: none;
+}
+
+input {
+  border-radius: 999px;
+  padding: 8px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+textarea {
+  border-radius: 5px;
+}
+
+.addContainer button {
+  background-color: #fe733e;
+  border-radius: 999px;
+  padding: 10px 25px;
+  margin: 5px;
+}
+
+.addContainer button:hover:enabled {
+  background-color: #cf4813;
+  color: white;
+}
+
+.addContainer.open {
+  min-width: 25vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.addContainer.close {
+  position: fixed;
+  bottom: -200%;
+}
+
+.updateContainer {
+  background-color: #d9e0e9;
+  padding: 10px;
+  border-radius: 5px;
+  border: black 1px solid;
+}
+
+.updateContainer button {
+  background-color: #fe733e;
+  border-radius: 999px;
+  padding: 10px 25px;
+  margin: 5px;
+}
+
+.updateContainer button:hover:enabled {
+  background-color: #cf4813;
+  color: white;
+}
+
+.updateContainer.open {
+  min-width: 28vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.updateContainer.close {
+  position: fixed;
+  bottom: -200%;
+}
+
+.updateContainer > * {
+  border: none;
+}
+
+.updateContainer p,
+.addContainer p {
+  color: red;
+}
+
+textarea {
+  resize: none;
+  width: 180px;
+  height: 150px;
+}
+
+label,
+input {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.emptyBookMsg {
+  padding: 20px;
+  color: white;
+}
+
+.required {
+  border: 2px solid red;
+}
+
+.filterLbl p,
+.rangeNumberLbl,
+.searchBook label {
+  color: #fe733e;
+}
+
+.mangeBooksToDisplay {
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchBook,
+.filterContainer {
+  display: flex;
+  align-items: center;
+}
+
+p span,
+label span {
+  color: red;
+  font-weight: bold;
+}
