@@ -135,11 +135,11 @@ function markEmptyFields(arrFields) {
   });
 }
 
-function checkSearch(book, str) {
-  if (str === "") {
+function checkSearch(str1, str2) {
+  if (str1 === "" || str2 === "") {
     return true;
   } else {
-    return book.name.includes(str);
+    return str1.includes(str2);
   }
 }
 

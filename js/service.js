@@ -95,7 +95,7 @@ function sortBooks(sortBy, elBtn) {
   removeAllBooksFromScreen(books);
   books.forEach((book) => {
     if (
-      checkSearch(book, gSearch) &&
+      checkSearch(book.name.toLowerCase(), gSearch.toLowerCase()) &&
       parseInt(book.price) >= parseInt(gMinPrice)
     ) {
       renderScreen(book);
