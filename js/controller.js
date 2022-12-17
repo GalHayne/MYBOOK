@@ -15,9 +15,9 @@ function renderScreen(book) {
   bookDescription.setAttribute("class", `description-${book.id}`);
   bookDescription.innerText = `${book.description}`;
 
-  let bookCoast = document.createElement("p");
-  bookCoast.setAttribute("class", `coast-${book.id}`);
-  bookCoast.innerText = `${book.price}$`;
+  let bookPrice = document.createElement("p");
+  bookPrice.setAttribute("class", `Price-${book.id}`);
+  bookPrice.innerText = `${book.price}$`;
 
   let bookUpdateBtn = document.createElement("button");
   bookUpdateBtn.setAttribute("onclick", `updateBook(${book.id})`);
@@ -33,7 +33,7 @@ function renderScreen(book) {
 
   newDiv.appendChild(bookTitle);
   newDiv.appendChild(bookDescription);
-  newDiv.appendChild(bookCoast);
+  newDiv.appendChild(bookPrice);
   newDiv.appendChild(bookUpdateBtn);
   newDiv.appendChild(bookDeleteBtn);
   newDiv.appendChild(bookTime);
@@ -72,14 +72,14 @@ function createNewBook() {
       document.querySelector(".bookName").value
     );
     let elDescription = document.querySelector(".descriptionOfBook").value;
-    let bookCoast = document.querySelector(".bookCoast").value;
+    let bookPrice = document.querySelector(".bookPrice").value;
 
     let mangeBooks = new MangeBook();
     if (checkForDuplicateBook(mangeBooks.getAllBooks(), elName) === false) {
       mangeBooks.addNewBook(
         gId++,
         elName,
-        bookCoast,
+        bookPrice,
         elDescription,
         new Date()
       );
@@ -94,7 +94,7 @@ function createNewBook() {
     emptyNewBookMenu();
     if (emptyMsgOpen()) {
       openMangeContainer();
-      removeElement(document.querySelector(".emptyBookMsg"));
+      removeElement(document.querySelector(".DivEmptyBookMsg"));
     }
   }
 }
@@ -102,11 +102,11 @@ function createNewBook() {
 function emptyNewBookMenu() {
   let elBookName = document.querySelector(".bookName");
   let elDescriptionOfBook = document.querySelector(".descriptionOfBook");
-  let elBookCoast = document.querySelector(".bookCoast");
+  let elBookPrice = document.querySelector(".bookPrice");
 
   elBookName.value = "";
   elDescriptionOfBook.value = "";
-  elBookCoast.value = "";
+  elBookPrice.value = "";
 }
 
 function deleteBookFromScreen(bookId) {
@@ -129,11 +129,11 @@ function updateBook(bookId) {
 
   let elBookName = document.querySelector(".updateBookName");
   let elDescriptionOfBook = document.querySelector(".updateDescriptionOfBook");
-  let elBookCoast = document.querySelector(".updateBookCoast");
+  let elBookPrice = document.querySelector(".updateBookPrice");
 
   elBookName.value = firstLetterToUpperCase(book.name);
   elDescriptionOfBook.value = book.description;
-  elBookCoast.value = book.price;
+  elBookPrice.value = book.price;
 
   let elUpdateContainer = document.querySelector(".updateContainer");
   toogleMenu(elUpdateContainer);
@@ -163,14 +163,14 @@ function updateCurrentBook(bookId) {
 
     let elNameOld = document.querySelector(`.name-${bookId}`);
     let elDecOld = document.querySelector(`.description-${bookId}`);
-    let elCoastOld = document.querySelector(`.coast-${bookId}`);
+    let elPriceOld = document.querySelector(`.Price-${bookId}`);
     let elBookTime = document.querySelector(`.bookTime-${book.id}`);
 
     let elBookNameNew = document.querySelector(".updateBookName");
     let elDescriptionOfBookNew = document.querySelector(
       ".updateDescriptionOfBook"
     );
-    let elBookCoastNew = document.querySelector(".updateBookCoast");
+    let elBookPriceNew = document.querySelector(".updateBookPrice");
 
     //update Book Time()
     updateBookTime(book);
@@ -178,13 +178,13 @@ function updateCurrentBook(bookId) {
     //Change DOM
     elNameOld.innerText = elBookNameNew.value;
     elDecOld.innerText = elDescriptionOfBookNew.value;
-    elCoastOld.innerText = elBookCoastNew.value + "$";
+    elPriceOld.innerText = elBookPriceNew.value + "$";
     elBookTime.innerText = book.timeCreatedTxt;
 
     let newBook = book;
     newBook.name = firstLetterToUpperCase(elBookNameNew.value);
     newBook.description = elDescriptionOfBookNew.value;
-    newBook.price = elBookCoastNew.value;
+    newBook.price = elBookPriceNew.value;
 
     //Update MangeBook Books
     let bookIdx = getBookIdx(bookId, mangeBooks.getAllBooks());
@@ -245,11 +245,15 @@ function enabledAllOtherBtn(arrBtn) {
 
 function printEmptyBooksMsg() {
   let elMain = document.querySelector(".main");
+  let elDiv = document.createElement("div");
+  elDiv.setAttribute("class", "DivEmptyBookMsg");
   let msg = `There are no books to display. Click + to add a new book`;
   let elP = document.createElement("p");
   elP.setAttribute("class", "emptyBookMsg");
   elP.innerText = msg;
-  elMain.appendChild(elP);
+  elDiv.appendChild(elP);
+
+  elMain.appendChild(elDiv);
 }
 
 function closeBookMangeContainer() {

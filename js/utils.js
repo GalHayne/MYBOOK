@@ -44,11 +44,11 @@ function getSelectorfromBookId(bookId) {
 function emptyNewBookMenu() {
   let elBookName = document.querySelector(".bookName");
   let elDescriptionOfBook = document.querySelector(".descriptionOfBook");
-  let elBookCoast = document.querySelector(".bookCoast");
+  let elBookPrice = document.querySelector(".bookPrice");
 
   elBookName.value = "";
   elDescriptionOfBook.value = "";
-  elBookCoast.value = "";
+  elBookPrice.value = "";
 }
 
 function updateBookTime(book) {

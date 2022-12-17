@@ -109,18 +109,18 @@ function filterBooks() {
   let books = mangeBooks.getAllBooks();
 }
 
-function onSetFilter(minCoast) {
+function onSetFilter(minPrice) {
   let elRangeNumberLbl = document.querySelector(".rangeNumberLbl");
-  elRangeNumberLbl.innerText = `${minCoast}$`;
+  elRangeNumberLbl.innerText = `${minPrice}$`;
 
-  gMinPrice = parseInt(minCoast);
+  gMinPrice = parseInt(minPrice);
 
   let mangeBooks = new MangeBook();
 
   let books = mangeBooks.getAllBooks();
 
   let booksAfterFilter = books.filter((book) => {
-    return book.bookCoast >= minCoast;
+    return book.bookPrice >= minPrice;
   });
 
   if (booksAfterFilter.length !== document.querySelectorAll(".bookCard")) {

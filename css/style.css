@@ -279,6 +279,11 @@ input {
   margin-left: auto;
 }
 
+.DivEmptyBookMsg {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .emptyBookMsg {
   padding: 20px;
   color: white;
