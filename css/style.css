@@ -16,8 +16,8 @@ button {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   padding: 3%;
+  justify-content: center;
   align-items: center;
   gap: 0.5em;
   margin-top: 0.5em;
