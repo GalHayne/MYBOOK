@@ -190,12 +190,7 @@ function filterBooks() {
   let books = mangeBooks.getAllBooks();
 }
 
-function onSetFilter(minPrice) {
-  let elRangeNumberLbl = document.querySelector(".rangeNumberLbl");
-  elRangeNumberLbl.innerText = `${minPrice}$`;
-
-  gMinPrice = parseInt(minPrice);
-
+function setFilterBooks(minPrice){
   let mangeBooks = new MangeBook();
 
   let books = mangeBooks.getAllBooks();
@@ -210,6 +205,12 @@ function onSetFilter(minPrice) {
       document.querySelector(".selected")
     );
   }
+}
+
+function onSetFilterLbl(minPrice) {
+  let elRangeNumberLbl = document.querySelector(".rangeNumberLbl");
+  elRangeNumberLbl.innerText = `${minPrice}$`;
+  gMinPrice = parseInt(minPrice);
 }
 
 function onSearch(elSearch) {
