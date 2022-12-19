@@ -98,6 +98,7 @@ function sortBooks(sortBy, elBtn) {
       checkSearch(book.name.toLowerCase(), gSearch.toLowerCase()) &&
       parseInt(book.price) >= parseInt(gMinPrice)
     ) {
+      
       renderScreen(book);
     }
   });
