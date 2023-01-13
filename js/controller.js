@@ -83,11 +83,15 @@ function createNewBook() {
         elDescription,
         new Date()
       );
-      showBookMsg("added", elName);
+      showBookMsgSwal("added",elName);
       let sortBy = gSorted;
       mangeBooks.sortAllBooks(sortBy);
     } else {
-      showBookMsg("cant be added cause have other book in this name", elName);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: `Cant be added cause have other book in this book name:${elName}`,
+      })
     }
 
     closeAddContainer();
@@ -196,7 +200,7 @@ function updateCurrentBook(bookId) {
 
     mangeBooks.sortAllBooks(sortBy);
 
-    showBookMsg("updated", newBook.name);
+    showBookMsgSwal("updated", newBook.name);
   }
 }
 
@@ -268,17 +272,28 @@ function openMangeContainer() {
   elSort.style.display = "flex";
 }
 
-function showBookMsg(msg, bookName) {
-  let elMsg = document.querySelector(".bookMsg");
-  let elP = document.createElement("p");
-  elP.innerText = `book ${bookName} ${msg}`;
-  elMsg.appendChild(elP);
-  elMsg.classList.remove("close");
-  elMsg.classList.add("open");
-  setTimeout(() => {
-    closeBookMsg();
-    elMsg.removeChild(elP);
-  }, 3000);
+// function showBookMsg(msg, bookName) {
+//   let elMsg = document.querySelector(".bookMsg");
+//   let elP = document.createElement("p");
+//   elP.innerText = `book ${bookName} ${msg}`;
+//   elMsg.appendChild(elP);
+//   elMsg.classList.remove("close");
+//   elMsg.classList.add("open");
+//   setTimeout(() => {
+//     closeBookMsg();
+//     elMsg.removeChild(elP);
+//   }, 3000);
+// }
+
+function showBookMsgSwal(msg,bookName){
+  Swal.fire({
+    position: 'bottom-start',
+    icon: 'success',
+    iconColor: '#fe733e',
+    title: `The Book:${bookName} has been ${msg}`,
+    showConfirmButton: false,
+    timer: 2500
+  })
 }
 
 function closeBookMsg() {

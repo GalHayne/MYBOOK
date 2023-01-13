@@ -17,17 +17,34 @@ function init() {
 function deleteBook(bookId) {
   let mangeBooks = new MangeBook();
   let bookIndex = getBookIdx(bookId, mangeBooks.getAllBooks());
-
   let bookName = mangeBooks.getAllBooks()[bookIndex].name;
+  Swal.fire({
+    title: `Are you sure you want to delete the book: ${bookName}`,
+    showDenyButton: true,
+    showCancelButton: false,
+    confirmButtonText: 'Yes delete!',
+    confirmButtonColor: "#fe733e",
+    confirmButtonBorder: "#fe733e",
+    denyButtonText: `Don't delete`,
+    denyButtonColor: "#9d9c9c"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      mangeBooks.deleteBookByIndex(bookIndex);
+      if (mangeBooks.getAllBooks().length === 0) {
+        printEmptyBooksMsg();
+        closeBookMangeContainer();
+      }
+      deleteBookFromScreen(bookId);
 
-  mangeBooks.deleteBookByIndex(bookIndex);
-  if (mangeBooks.getAllBooks().length === 0) {
-    printEmptyBooksMsg();
-    closeBookMangeContainer();
-  }
-  deleteBookFromScreen(bookId);
+      showBookMsgSwal("deleted", bookName);
+    } else if (result.isDenied) {
+      Swal.fire(`The book: ${bookName} is not deleted`, '', 'info')
+    }
+  })
 
-  showBookMsg("deleted", bookName);
+
+
+
 }
 
 function sortBooks(sortBy, elBtn) {
@@ -98,7 +115,7 @@ function sortBooks(sortBy, elBtn) {
       checkSearch(book.name.toLowerCase(), gSearch.toLowerCase()) &&
       parseInt(book.price) >= parseInt(gMinPrice)
     ) {
-      
+
       renderScreen(book);
     }
   });
@@ -110,7 +127,7 @@ function filterBooks() {
   let books = mangeBooks.getAllBooks();
 }
 
-function setFilterBooks(minPrice){
+function setFilterBooks(minPrice) {
   let mangeBooks = new MangeBook();
 
   let books = mangeBooks.getAllBooks();
