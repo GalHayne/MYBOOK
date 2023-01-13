@@ -327,6 +327,12 @@ label span {
   flex-wrap: wrap;
 }
 
+.swal-size-sm 
+{
+   width: 450px !important;
+   height: 200px !important;
+}
+
 @media screen and (max-width: 1260px) {
   .mangeBooksToDisplay {
     justify-content: center;

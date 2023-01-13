@@ -83,7 +83,7 @@ function createNewBook() {
         elDescription,
         new Date()
       );
-      showBookMsgSwal("added",elName);
+      showBookMsgSwal("added", elName);
       let sortBy = gSorted;
       mangeBooks.sortAllBooks(sortBy);
     } else {
@@ -285,14 +285,15 @@ function openMangeContainer() {
 //   }, 3000);
 // }
 
-function showBookMsgSwal(msg,bookName){
+function showBookMsgSwal(msg, bookName) {
   Swal.fire({
     position: 'bottom-start',
     icon: 'success',
     iconColor: '#fe733e',
     title: `The Book:${bookName} has been ${msg}`,
     showConfirmButton: false,
-    timer: 2500
+    customClass: "swal-size-sm",
+    timer: 1500
   })
 }
 
