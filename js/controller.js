@@ -272,25 +272,12 @@ function openMangeContainer() {
   elSort.style.display = "flex";
 }
 
-// function showBookMsg(msg, bookName) {
-//   let elMsg = document.querySelector(".bookMsg");
-//   let elP = document.createElement("p");
-//   elP.innerText = `book ${bookName} ${msg}`;
-//   elMsg.appendChild(elP);
-//   elMsg.classList.remove("close");
-//   elMsg.classList.add("open");
-//   setTimeout(() => {
-//     closeBookMsg();
-//     elMsg.removeChild(elP);
-//   }, 3000);
-// }
-
 function showBookMsgSwal(msg, bookName) {
   Swal.fire({
     position: 'bottom-start',
     icon: 'success',
     iconColor: '#fe733e',
-    title: `The Book:${bookName} has been ${msg}`,
+    title: `The Book:"${bookName}" has been ${msg}`,
     showConfirmButton: false,
     customClass: "swal-size-sm",
     timer: 1500
